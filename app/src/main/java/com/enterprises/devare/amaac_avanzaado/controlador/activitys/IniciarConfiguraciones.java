@@ -3,6 +3,7 @@ package com.enterprises.devare.amaac_avanzaado.controlador.activitys;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,10 +25,11 @@ public class IniciarConfiguraciones extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_configuraciones);
-
         inicializarcomponentesUI();
+
         progressBar.setMax(100);
         progressBar.setBackgroundColor(Color.TRANSPARENT);
+
         //progressBar.getProgressDrawable().setColorFilter(Color.WHITE, android.graphics.PorterDuff.Mode.SRC_IN);
         progressBar.setProgress(0);
 

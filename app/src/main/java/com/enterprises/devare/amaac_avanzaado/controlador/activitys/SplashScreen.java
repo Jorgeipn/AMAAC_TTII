@@ -11,7 +11,7 @@ import com.enterprises.devare.amaac_avanzaado.R;
 public class SplashScreen extends AppCompatActivity {
 
     //<editor-fold desc="ETIQUETAS">
-    private static final long SPLASH_SCREEN_DELAY = 3000;
+    private static final long SPLASH_SCREEN_DELAY = 5000;
     //</editor-fold>
     SharedPreferences preferences;
 

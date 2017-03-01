@@ -1,5 +1,6 @@
 package com.enterprises.devare.amaac_avanzaado.controlador.adapters;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -28,23 +29,57 @@ import java.util.List;
 import java.util.Locale;
 
 //<editor-fold desc="IMPORTAR ETIQUETAS">
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_VERBOS_AUX;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_RESPUESTAS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_VERBOS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_BEBIDAS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_FRUTAS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_VERDURAS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_COMIDA;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_POSTRES;
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_ALIMENTOS;
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_ANIMALES;
-import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_FAMILIA;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_OBJETOS;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_ANIMO;
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_LUGARES;
+import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_FAMILIA;
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_PROFESIONES;
-import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.CAT_VERBOS;
+
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.TIPO_PIC_NORMAL;
 import static com.enterprises.devare.amaac_avanzaado.modelo.Pictograma.TIPO_PIC_SELECCIONADO;
+
+
+
+
+
+
 //</editor-fold>
 
 import static com.enterprises.devare.amaac_avanzaado.modelo.utilidades.Utilidades.getBackground_CardView;
-
+import com.enterprises.devare.amaac_avanzaado.controlador.activitys.MainActivity;
 
 public class Comunicador_main extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
     //<editor-fold desc="DECLARACIÓN DE VARIABLES">
-    private RecyclerView recycler,recycler2,recycler3,recycler4,recycler5,recycler6,recyclerView_frase;
+    private RecyclerView
+            recycler_verbos_aux,
+            recycler_respuestas,
+            recycler_verbos,
+            recycler_bebidas,
+            recycler_frutas,
+            recycler_verduras,
+            recycler_comida,
+            recycler_postres,
+            recycler_alimentos,
+            recycler_animales,
+            recycler_objetos,
+            recycler_animo,
+            recycler_lugares,
+            recycler_familia,
+            recycler_profesiones,
+       recyclerView_frase;
+
+
     private CardViewAdaptador adapter;
     private TextToSpeech tts;
 
@@ -73,12 +108,23 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
     //<editor-fold desc="MÉTODO inicializarComponentesUI()">
     private void inicializarComponentesUI() {
 
-        recycler =          (RecyclerView) findViewById(R.id.reciclador_card);
-        recycler2=          (RecyclerView) findViewById(R.id.reciclador_card_2);
-        recycler3=          (RecyclerView) findViewById(R.id.reciclador_card_3);
-        recycler4=          (RecyclerView) findViewById(R.id.reciclador_card_4);
-        recycler5=          (RecyclerView) findViewById(R.id.reciclador_card_5);
-        recycler6=          (RecyclerView) findViewById(R.id.reciclador_card_6);
+        recycler_verbos_aux     =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_verbos_aux);
+        recycler_respuestas =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_respuestas);
+        recycler_verbos =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_verbos);
+        recycler_bebidas =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_bebidas);
+        recycler_frutas =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_frutas);
+        recycler_verduras =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_verduras);
+        recycler_comida =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_comida);
+        recycler_postres =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_postres);
+        recycler_alimentos =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_alimentos);
+        recycler_animales =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_animales);
+        recycler_objetos =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_objetos);
+        recycler_animo =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_animo);
+        recycler_lugares =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_lugares);
+        recycler_familia =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_familia);
+        recycler_profesiones =   (RecyclerView) findViewById(R.id.reciclador_card_tablero_profesiones);
+
+
         recyclerView_frase= (RecyclerView) findViewById(R.id.reciclador_card_item_frase);
 
     }
@@ -87,12 +133,23 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
     //<editor-fold desc="MÉTODO inicializarAdaptador()">
     private void inicializarAdaptador() {
 
-        InitAdapter(recycler ,db.getCategoria_Pictogramas(CAT_VERBOS));
-        InitAdapter(recycler2,db.getCategoria_Pictogramas(CAT_ALIMENTOS));
-        InitAdapter(recycler3,db.getCategoria_Pictogramas(CAT_FAMILIA));
-        InitAdapter(recycler4,db.getCategoria_Pictogramas(CAT_PROFESIONES));
-        InitAdapter(recycler5,db.getCategoria_Pictogramas(CAT_LUGARES));
-        InitAdapter(recycler6,db.getCategoria_Pictogramas(CAT_ANIMALES));
+
+        InitAdapter(recycler_verbos_aux ,db.getCategoria_Pictogramas(CAT_VERBOS_AUX));
+        InitAdapter(recycler_respuestas ,db.getCategoria_Pictogramas(CAT_RESPUESTAS));
+        InitAdapter(recycler_verbos ,db.getCategoria_Pictogramas(CAT_VERBOS));
+        InitAdapter(recycler_bebidas ,db.getCategoria_Pictogramas(CAT_BEBIDAS));
+        InitAdapter(recycler_frutas ,db.getCategoria_Pictogramas(CAT_FRUTAS));
+        InitAdapter(recycler_verduras ,db.getCategoria_Pictogramas(CAT_VERDURAS));
+        InitAdapter(recycler_comida ,db.getCategoria_Pictogramas(CAT_COMIDA));
+        InitAdapter(recycler_postres ,db.getCategoria_Pictogramas(CAT_POSTRES));
+        InitAdapter(recycler_alimentos ,db.getCategoria_Pictogramas(CAT_ALIMENTOS));
+        InitAdapter(recycler_animales ,db.getCategoria_Pictogramas(CAT_ANIMALES));
+        InitAdapter(recycler_objetos ,db.getCategoria_Pictogramas(CAT_OBJETOS));
+        InitAdapter(recycler_animo ,db.getCategoria_Pictogramas(CAT_ANIMO));
+        InitAdapter(recycler_lugares ,db.getCategoria_Pictogramas(CAT_LUGARES));
+        InitAdapter(recycler_familia ,db.getCategoria_Pictogramas(CAT_FAMILIA));
+        InitAdapter(recycler_profesiones ,db.getCategoria_Pictogramas(CAT_PROFESIONES));
+
 
     }
     //</editor-fold>
@@ -131,6 +188,7 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
     }
     //</editor-fold>
 
+/*
     //<editor-fold desc="MÉTODO onCreateOptionsMenu()">
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -138,8 +196,46 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
         return true;
 
     }
+*/
     //</editor-fold>
 
+    public void btn_ayuda(View view){
+        String x= "¡ayuda!";
+        speak(x);
+    }
+
+    public void btn_estoy_bien(View view){
+        String x= "¡Estoy bién!";
+        speak(x);
+    }
+
+    public void btn_quiero_hablar(View view){
+        String x= "¡Disculpe, Quiero hablar!";
+        speak(x);
+    }
+
+    public void btn_no_quiero_hablar(View view){
+        String x= "¡Perdón, No quiero hablar!";
+        speak(x);
+    }
+
+    public void reproducirFrase(View view){
+        String x= methodsManager.Reproducir_Frase(PIC_GUARDADO);
+        speak(x);
+    }
+
+    public void borrarFrase(View view){
+        PIC_GUARDADO=methodsManager.DeleteAll(PIC_GUARDADO,this);
+        Init_Adapter_Seleccionados(recyclerView_frase,PIC_GUARDADO);
+    }
+
+    public void go_to_pp(View view){
+        startActivity(new Intent(this, MainActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+        finish();
+    }
+
+/*
     //<editor-fold desc="MÉTODO onOptionsItemSelected()">
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -162,6 +258,8 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
 
     }
     //</editor-fold>
+
+*/
 
     //<editor-fold desc="MÉTODOS DE LA CLASE TEXT TO SPEECH">
     @Override

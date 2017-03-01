@@ -6,27 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="@drawable/background"
-    tools:ignore="DisableBaselineAlignment">
+    android:background="@drawable/ic_background"
+    tools:ignore="DisableBaselineAlignment"
+    >
 
     <LinearLayout
         android:id="@+id/principal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary_alpha"
         android:orientation="vertical"
-        android:layout_marginLeft="16dp"
         android:layout_weight=".5"
         android:weightSum="1"
-        tools:ignore="RtlHardcoded">
-
+        tools:ignore="RtlHardcoded"
+        >
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_launcher"
-            tools:ignore="ContentDescription" />
-
+            tools:ignore="ContentDescription"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -38,28 +39,34 @@
             android:textSize="60sp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
             android:textColor="@color/colorIcons"
             android:textAllCaps="?android:attr/textAppearanceSmall"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Cargando las configuraciones"
+            android:text="Cargando las configuraciones..."
             android:textSize="22sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:gravity="center"
+            />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
             android:textColor="@color/colorIcons"
-            android:text="Esto tardara unos minutos"
+            android:text=""
             android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            />
 
     </LinearLayout>
 
     <LinearLayout
+        android:background="@color/colorPrimary_alpha"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -72,7 +79,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:textStyle="bold"
-            android:textSize="30sp"
+            android:textSize="36sp"
             android:layout_weight=".40"
             android:textAlignment="center"
             android:text="1"
@@ -87,7 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".40"
             android:layout_centerHorizontal="true"
-            tools:ignore="InefficientWeight,ObsoleteLayoutParam" />
+            tools:ignore="InefficientWeight,ObsoleteLayoutParam"
+            />
 
         <TextView
             android:layout_width="match_parent"

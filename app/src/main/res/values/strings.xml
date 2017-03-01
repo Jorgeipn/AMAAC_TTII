@@ -74,5 +74,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+    <string name="categoria_verbos_aux">Verbos AUX</string>
+    <string name="categoria_respuestas">Respuestas</string>
+    <string name="categoria_bebidas">Bebidas</string>
+    <string name="categoria_frutas">Frutas</string>
+    <string name="categoria_verduras">Verduras</string>
+    <string name="categoria_comida">Comida</string>
+    <string name="categoria_postres">Postres</string>
+    <string name="categoria_objetos">Objetos</string>
+    <string name="categoria_animo">Animo</string>
 
 </resources>
