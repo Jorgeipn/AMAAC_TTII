@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:ignore="MergeRootFrame"
-    tools:context="com.enterprises.devare.amaac_avanzaado.controlador.activitys.TecnicaDetailActivity">
+    tools:context="com.enterprises.devare.amaac_avanzaado.controlador.activitys.TecnicaDetailActivity"
+    android:background="@drawable/ic_background"
+    >
 
     <android.support.design.widget.AppBarLayout
     android:id="@+id/app_bar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/app_bar_height"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -34,12 +36,23 @@
 
 </android.support.design.widget.AppBarLayout>
 
+    <!--
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/tecnica_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@drawable/ic_background"
+        android:background="@color/colorPrimary_alpha_launcher"
+        />
+    -->
+
+    <LinearLayout
+        android:id="@+id/tecnica_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary_alpha"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
 </android.support.design.widget.CoordinatorLayout>

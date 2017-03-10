@@ -291,6 +291,14 @@ public class Comunicador_main extends AppCompatActivity implements TextToSpeech.
     //</editor-fold>
 
 
+
+
+
+
+
+
+
+
     //<editor-fold desc="CLASE ADAPTADOR CardViewAdaptador">
     public class CardViewAdaptador  extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 

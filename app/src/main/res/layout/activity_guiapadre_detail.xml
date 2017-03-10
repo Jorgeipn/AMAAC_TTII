@@ -5,12 +5,16 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.enterprises.devare.amaac_avanzaado.controlador.activitys.guiapadreDetailActivity"
-    tools:ignore="MergeRootFrame">
+    tools:ignore="MergeRootFrame"
+    android:background="@drawable/ic_background"
+    >
+
+    <!--         android:layout_height="@dimen/app_bar_height" -->
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -23,6 +27,8 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
+
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/detail_toolbar"
                 android:layout_width="match_parent"
@@ -34,12 +40,29 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/guiapadre_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_background"
+
+        android:background="@color/colorPrimary_alpha"
+
+
+
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+-->
+
+    <LinearLayout
+        android:id="@+id/guiapadre_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary_alpha"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+
 
 
 </android.support.design.widget.CoordinatorLayout>

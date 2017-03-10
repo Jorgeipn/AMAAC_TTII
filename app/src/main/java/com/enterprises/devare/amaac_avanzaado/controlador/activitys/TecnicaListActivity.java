@@ -55,6 +55,10 @@ public class TecnicaListActivity extends AppCompatActivity {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(TecnicaRelajacionContent.ITEMS));
     }
 
+
+
+
+
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
@@ -77,7 +81,7 @@ public class TecnicaListActivity extends AppCompatActivity {
             // holder.mIdView.setText(mValues.get(position).id);
             holder.mTituloView.setText(mValues.get(position).titulo);
             holder.mResumenView.setText(mValues.get(position).descripcion);
-            holder.mFechaView.setText(mValues.get(position).fecha);
+            //holder.mFechaView.setText(mValues.get(position).fecha);
             holder.mImageView.setImageResource(mValues.get(position).idImagen);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +116,7 @@ public class TecnicaListActivity extends AppCompatActivity {
             // public final TextView mIdView;
             public final TextView mTituloView;
             public final TextView mResumenView;
-            public final TextView mFechaView;
+            //public final TextView mFechaView;
             public final ImageView mImageView;
 
             public TecnicaRelajacionContent.TecnicaRelajacion mItem;
@@ -123,7 +127,7 @@ public class TecnicaListActivity extends AppCompatActivity {
                 // mIdView = (TextView) view.findViewById(R.id.txt_id);
                 mTituloView = (TextView) view.findViewById(R.id.txt_titulo);
                 mResumenView=(TextView) view.findViewById(R.id.txt_resumen);
-                mFechaView=(TextView) view.findViewById(R.id.txt_fecha);
+                //mFechaView=(TextView) view.findViewById(R.id.txt_fecha);
                 mImageView=(ImageView) view.findViewById(R.id.iv_miniatura);
             }
 

@@ -57,6 +57,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".controlador.activitys.guiapadreListActivity" />
         </activity>
+
         <activity
             android:name=".controlador.activitys.TecnicaListActivity"
             android:label="@string/consejos_relajacion"

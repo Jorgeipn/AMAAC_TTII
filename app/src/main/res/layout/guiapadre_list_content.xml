@@ -3,26 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/altura_item"
-    android:orientation="horizontal"
     android:layout_marginTop="@dimen/margen_estandar"
-    android:layout_marginBottom="@dimen/margen_estandar">
+    android:background="@color/colorPrimary_alpha"
+    android:paddingTop="4dp"
+    android:paddingBottom="2dp"
+    android:paddingLeft="15dp"
+    >
 
     <TextView
+        android:id="@+id/txt_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Título"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        android:id="@+id/txt_titulo"
+        android:textColor="@color/colorMenuPrimaryText"
+        android:textSize="@dimen/textBody2"
+        android:paddingLeft="15dp"
+
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/iv_miniatura"
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
+        android:id="@+id/txt_resumen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resumen"
-        android:id="@+id/txt_resumen"
+        android:textColor="@color/colorMenuQuaternaryText"
+        android:textSize="@dimen/textBody1"
+        android:paddingLeft="15dp"
+
         android:layout_below="@+id/txt_titulo"
         android:layout_alignLeft="@+id/txt_titulo"
         android:layout_alignRight="@+id/txt_titulo"
@@ -30,15 +41,22 @@
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
+        android:id="@+id/txt_fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha"
-        android:id="@+id/txt_fecha"
+        android:textColor="@color/colorMenuSecondaryText"
+        android:textSize="@dimen/textButton"
+        android:paddingLeft="15dp"
+
         android:layout_alignLeft="@+id/txt_resumen"
         android:layout_alignRight="@+id/txt_titulo"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:layout_alignParentBottom="true"
         tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+
 
     <ImageView
         android:layout_width="@dimen/ancho_miniatura"
@@ -47,5 +65,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margen_estandar"
+        android:padding="15dp"
         tools:ignore="ContentDescription,RtlHardcoded" />
 </RelativeLayout>

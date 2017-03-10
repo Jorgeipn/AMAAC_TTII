@@ -1,12 +1,17 @@
 package com.enterprises.devare.amaac_avanzaado.controlador.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.enterprises.devare.amaac_avanzaado.R;
@@ -47,7 +52,11 @@ public class TecnicaDetailFragment extends Fragment {
                 appBarLayout.setTitle(itemDetalldo.titulo);//el contenido dentro ded  i barra
             }
         }
+
+
     }
+
+    TextView titulo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,10 +65,45 @@ public class TecnicaDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (itemDetalldo != null) {
-            ((TextView) v.findViewById(R.id.tecnica_detail)).setText(itemDetalldo.descripcion);
-            ((TextView) v.findViewById(R.id.fecha)).setText(itemDetalldo.fecha);
+            ((TextView) v.findViewById(R.id.contenido)).setText(itemDetalldo.descripcion);
+            ((TextView) v.findViewById(R.id.titulo)).setText(itemDetalldo.titulo);
+            titulo= (TextView) v.findViewById(R.id.fecha);
+            titulo.setText(itemDetalldo.fecha);
+
+            ImageView myImageView = (ImageView)v.findViewById(R.id.imagen);
+// supossing to have an image called ic_play inside my drawables.
+            myImageView.setImageResource(itemDetalldo.idImagen);
+
+            ImageView go_to_video= (ImageView) v.findViewById(R.id.go_to_video);
+
+            go_to_video.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v) {
+                    Log.d("url", titulo.getText().toString());
+
+                    String link = titulo.getText().toString();
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+                }
+
+            });
+
+
+
         }
 
         return v;
     }
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
